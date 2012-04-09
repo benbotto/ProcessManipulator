@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProcessManipulator", "ProcessManipulator.vcxproj", "{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BensGame", "..\HackExamples\BensGame\BensGame.vcxproj", "{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChangeBullets", "..\HackExamples\ChangeBullets\ChangeBullets.vcxproj", "{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GodMode", "..\HackExamples\GodMode\GodMode.vcxproj", "{B9B5A38F-57D5-49D9-816E-A4366AFDA958}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629} = {7BF64D96-3B8D-48A5-ABE5-35723A3A5629}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Injector", "..\HackExamples\Injector\Injector.vcxproj", "{0B0C8C17-0D7E-4CE7-B24B-18D4DB836738}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629} = {7BF64D96-3B8D-48A5-ABE5-35723A3A5629}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChangeBullets2", "..\HackExamples\ChangeBullets2\ChangeBullets2.vcxproj", "{3B3FC7E8-7D20-419F-AB89-2E2FBA386EC1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Regenerate", "..\HackExamples\Regenerate\Regenerate.vcxproj", "{B455895D-5F5A-4719-A6B0-76DC081AFA77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}.Debug|Win32.Build.0 = Debug|Win32
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}.Release|Win32.ActiveCfg = Release|Win32
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}.Release|Win32.Build.0 = Release|Win32
+		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}.Debug|Win32.Build.0 = Debug|Win32
+		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}.Release|Win32.ActiveCfg = Release|Win32
+		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}.Release|Win32.Build.0 = Release|Win32
+		{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}.Debug|Win32.Build.0 = Debug|Win32
+		{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}.Release|Win32.ActiveCfg = Release|Win32
+		{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}.Release|Win32.Build.0 = Release|Win32
+		{B9B5A38F-57D5-49D9-816E-A4366AFDA958}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B9B5A38F-57D5-49D9-816E-A4366AFDA958}.Debug|Win32.Build.0 = Debug|Win32
+		{B9B5A38F-57D5-49D9-816E-A4366AFDA958}.Release|Win32.ActiveCfg = Release|Win32
+		{B9B5A38F-57D5-49D9-816E-A4366AFDA958}.Release|Win32.Build.0 = Release|Win32
+		{0B0C8C17-0D7E-4CE7-B24B-18D4DB836738}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0B0C8C17-0D7E-4CE7-B24B-18D4DB836738}.Debug|Win32.Build.0 = Debug|Win32
+		{0B0C8C17-0D7E-4CE7-B24B-18D4DB836738}.Release|Win32.ActiveCfg = Release|Win32
+		{0B0C8C17-0D7E-4CE7-B24B-18D4DB836738}.Release|Win32.Build.0 = Release|Win32
+		{3B3FC7E8-7D20-419F-AB89-2E2FBA386EC1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3B3FC7E8-7D20-419F-AB89-2E2FBA386EC1}.Debug|Win32.Build.0 = Debug|Win32
+		{3B3FC7E8-7D20-419F-AB89-2E2FBA386EC1}.Release|Win32.ActiveCfg = Release|Win32
+		{3B3FC7E8-7D20-419F-AB89-2E2FBA386EC1}.Release|Win32.Build.0 = Release|Win32
+		{B455895D-5F5A-4719-A6B0-76DC081AFA77}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B455895D-5F5A-4719-A6B0-76DC081AFA77}.Debug|Win32.Build.0 = Debug|Win32
+		{B455895D-5F5A-4719-A6B0-76DC081AFA77}.Release|Win32.ActiveCfg = Release|Win32
+		{B455895D-5F5A-4719-A6B0-76DC081AFA77}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

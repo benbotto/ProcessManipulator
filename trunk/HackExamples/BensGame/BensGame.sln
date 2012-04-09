@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BensGame", "Example1.vcxproj", "{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChangeBullets", "..\ChangeBullets\ChangeBullets.vcxproj", "{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GodMode", "..\GodMode\GodMode.vcxproj", "{B9B5A38F-57D5-49D9-816E-A4366AFDA958}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProcessManipulator", "Z:\Programming\C++\Security\ProcessManip\ProcessManipulator\ProcessManipulator\ProcessManipulator.vcxproj", "{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}.Debug|Win32.Build.0 = Debug|Win32
+		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}.Release|Win32.ActiveCfg = Release|Win32
+		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}.Release|Win32.Build.0 = Release|Win32
+		{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}.Debug|Win32.Build.0 = Debug|Win32
+		{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}.Release|Win32.ActiveCfg = Release|Win32
+		{E2EA3B28-AF1C-4A5F-9250-F03B39F7805B}.Release|Win32.Build.0 = Release|Win32
+		{B9B5A38F-57D5-49D9-816E-A4366AFDA958}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B9B5A38F-57D5-49D9-816E-A4366AFDA958}.Debug|Win32.Build.0 = Debug|Win32
+		{B9B5A38F-57D5-49D9-816E-A4366AFDA958}.Release|Win32.ActiveCfg = Release|Win32
+		{B9B5A38F-57D5-49D9-816E-A4366AFDA958}.Release|Win32.Build.0 = Release|Win32
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}.Debug|Win32.Build.0 = Debug|Win32
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}.Release|Win32.ActiveCfg = Release|Win32
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
