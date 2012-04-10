@@ -13,10 +13,12 @@ __declspec(naked) void stdProc()
 { 
   __asm
   {
+    push ebp
+    mov ebp, esp
     push ecx
 
     // Address of arguments[0].
-    mov eax, [ebp + 8]
+    mov eax, [ebp + 0x8]
 
     // for (int i = numArgs; i > 0; --i)
     mov ecx, [eax]
@@ -38,6 +40,8 @@ __declspec(naked) void stdProc()
 
     // Restore.
     pop ecx
+    mov esp, ebp
+    pop ebp
 
     // This is a WINAPI (__stdcall).  Callee does the stack cleanup.
     ret 4
