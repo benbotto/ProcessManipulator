@@ -42,7 +42,7 @@ DWORD WINAPI regenerate(void* unused)
 extern "C" __declspec(dllexport) void __cdecl initialize(DWORD initLife)
 {
   // Init.
-  life     = reinterpret_cast<unsigned int*>(0x18FEC4);
+  life     = reinterpret_cast<unsigned int*>(0x0018FEF0);
   flagExit = false;
   hndMutex = CreateMutex(NULL, FALSE, NULL);
 

@@ -16,7 +16,6 @@ int main(int argc, char* argv[])
   cout << "Address of Enemy1: 0x" << hex << pEnemy
        << ".  Address of pEnemy (pointer): 0x" << &pEnemy
        << endl;
-  delete pEnemy;
 
   return 0;
 }

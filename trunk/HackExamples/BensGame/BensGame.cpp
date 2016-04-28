@@ -1,13 +1,16 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <memory>
 #include <Windows.h>
 #include "Entity.h"
 #include "Player.h"
-#include "EntityList.h"
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
+using std::vector;
+using std::unique_ptr;
 
 void help()
 {
@@ -22,53 +25,55 @@ void help()
   cout << endl;
 }
 
-void fire(Entity& ent)
+void fire(Player& p1)
 {
   cout << "Firing." << endl;
-  ent.Fire();
+  p1.fire();
 }
 
 void reload(Player& p1)
 {
   cout << "Reloading." << endl;
-  p1.Reload();
+  p1.reload();
 }
 
 void printEntity(const Entity& ent)
 {
-  cout << ent.ToString();
+  cout << ent.toString();
 }
 
 void takeHit(Entity& ent)
 {
   cout << "Taking a hit." << endl;
-  ent.TakeHit(20);
+  ent.takeHit(20);
 }
 
 void changeTarget(Player& p1, Entity* ent)
 {
   cout << "Changing target." << endl;
-  p1.SetTarget(ent);
+  p1.setTarget(ent);
 }
 
 int main(int argc, char* argv)
 {
-  Player          p1("Target_practice");
-  EntityList      ents;
-  EntityListNode* target;
-  bool            quit = false;
-  string          command;
+  typedef vector<unique_ptr<Entity> > entList_t;
+
+  Player              p1("Target_practice");
+  entList_t           enemies;
+  entList_t::iterator target;
+  bool                quit = false;
+  string              command;
 
   // Change the window title.
   SetConsoleTitle("BensGame");
 
-  // Create a bunch of Entities.
-  for (int i = 0; i < 3; ++i) ents.AddEntity(new Entity());
+  // Create some enemies.
+  for (int i = 0; i < 3; ++i)
+    enemies.push_back(unique_ptr<Entity>(new Entity()));
 
   // Target the first Entity.
-  target = ents.GetHead();
-  
-  p1.SetTarget(target->GetEntity());
+  target = enemies.begin();
+  p1.setTarget(target->get());
 
   while (!quit)
   {
@@ -94,8 +99,9 @@ int main(int argc, char* argv)
         takeHit(p1);
         break;
       case 'c':
-        target = ents.GetNext(target);
-        changeTarget(p1, target->GetEntity());
+        if (++target == enemies.end())
+          target = enemies.begin();
+        changeTarget(p1, target->get());
         break;
       case 'q':
         quit = true;
