@@ -1,15 +1,13 @@
 #include <iostream>
+#include <string>
 #include <Windows.h>
 #include "Entity.h"
 #include "Player.h"
 #include "EntityList.h"
-#include <string>
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
-
-void help();
 
 void help()
 {
