@@ -24,7 +24,7 @@ int main()
   try
   {
     byte*  pGodMode = reinterpret_cast<byte*>(godMode);
-    DWORD* pDecLife = reinterpret_cast<DWORD*>(0x401056);
+    DWORD* pDecLife = reinterpret_cast<DWORD*>(0x401C26);
     uint  godSize;
     ProcessManipulator pm("BensGame");
 
