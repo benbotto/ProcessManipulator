@@ -9,15 +9,16 @@ class Player : public Entity
   unsigned int bullets;
   string       name;
   Entity*      target;
+
 public:
   Player(const string& name);
-  void Fire();
-  unsigned int GetBullets() const;
-  string GetName() const;
-  void Reload();
-  string ToString() const;
-  void SetTarget(Entity* tar);
-  Entity* GetTarget() const;
+  void fire();
+  unsigned int getBullets() const;
+  string getName() const;
+  void reload();
+  string toString() const;
+  void setTarget(Entity* tar);
+  Entity* getTarget() const;
 };
 
 #endif

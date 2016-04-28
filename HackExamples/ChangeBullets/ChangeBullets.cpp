@@ -17,7 +17,7 @@ int main()
   HANDLE           hndToken;
   HANDLE           hndProc;
   LUID             luid;
-  DWORD*           bulletsAddr = reinterpret_cast<DWORD*>(0x18FEDC);
+  DWORD*           bulletsAddr = reinterpret_cast<DWORD*>(0x0018FEF4);
   uint             bullets;
   uint             newBullets = 100;
   TOKEN_PRIVILEGES tp;
@@ -58,7 +58,7 @@ int main()
        << luid.LowPart << " High: " << luid.HighPart << endl;
 
   // Change this process's privilege (note: this must be run as Administrator).
-  tp.PrivilegeCount            = 1;
+  tp.PrivilegeCount           = 1;
   tp.Privileges[0].Luid       = luid;
   tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
   AdjustTokenPrivileges(hndToken, false, &tp, sizeof(TOKEN_PRIVILEGES), NULL, NULL);

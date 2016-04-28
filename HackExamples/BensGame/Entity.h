@@ -11,9 +11,7 @@ using std::ostringstream;
 
 class Entity
 {
-  int     life;
-  double  x;
-  double  y;
+  unsigned life;
 
   friend class EntityList;
 public:
@@ -21,10 +19,9 @@ public:
    * Construct the Entity.
   */ 
   Entity();
-  virtual void Fire();
-  virtual void TakeHit(int hit);
-  int GetLife() const;
-  virtual string ToString() const;
+  virtual void takeHit(unsigned hit);
+  unsigned getLife() const;
+  virtual string toString() const;
 };
 
 #endif

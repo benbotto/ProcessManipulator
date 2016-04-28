@@ -5,43 +5,36 @@
 */ 
 Entity::Entity()
 {
-  life    = 100;
-  x       = 0;
-  y       = 0;
+  this->life = 100;
 }
-
-/*
- * Fire the weapon.
-*/ 
-void Entity::Fire() {}
 
 /*
   * Take a hit.
 */ 
-void Entity::TakeHit(int hit)
+void Entity::takeHit(unsigned hit)
 {
-  if (life)
+  if (this->life)
   {
-    life -= hit;
-    if (life < 0)
-      life = 0;
+    this->life -= hit;
+    if (this->life < 0)
+      this->life = 0;
   }
 }
 
 /*
  * Get the Entity's life.
 */ 
-int Entity::GetLife() const
+unsigned Entity::getLife() const
 {
-  return life;
+  return this->life;
 }
 
 /*
  * Describe the entity.
 */
-string Entity::ToString() const
+string Entity::toString() const
 {
   ostringstream os;
-  os << "Life: " << GetLife() << endl;
+  os << "Life: " << this->getLife() << endl;
   return os.str();
 }

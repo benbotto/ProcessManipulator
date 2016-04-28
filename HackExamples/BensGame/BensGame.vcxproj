@@ -70,15 +70,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="EntityList.cpp" />
-    <ClCompile Include="EntityListNode.cpp" />
     <ClCompile Include="BensGame.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="EntityList.h" />
-    <ClInclude Include="EntityListNode.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
