@@ -28,6 +28,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackVsHeap", "..\HackExamp
 		{1F1A3038-6FFD-4766-AF8F-4690EA2CD56A} = {1F1A3038-6FFD-4766-AF8F-4690EA2CD56A}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssaultCubeAimBot", "..\HackExamples\AssaultCubeAimBot\AssaultCubeAimBot.vcxproj", "{D01249A7-329A-4BF7-9316-DC587F55376B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssaultCubeInjector", "..\HackExamples\AssaultCubeInjector\AssaultCubeInjector.vcxproj", "{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7BF64D96-3B8D-48A5-ABE5-35723A3A5629} = {7BF64D96-3B8D-48A5-ABE5-35723A3A5629}
+		{D01249A7-329A-4BF7-9316-DC587F55376B} = {D01249A7-329A-4BF7-9316-DC587F55376B}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -86,6 +94,22 @@ Global
 		{F4C21DC4-B2E5-486B-A521-08DC2CF0608D}.Release|Win32.Build.0 = Release|Win32
 		{F4C21DC4-B2E5-486B-A521-08DC2CF0608D}.Release|x64.ActiveCfg = Release|x64
 		{F4C21DC4-B2E5-486B-A521-08DC2CF0608D}.Release|x64.Build.0 = Release|x64
+		{D01249A7-329A-4BF7-9316-DC587F55376B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D01249A7-329A-4BF7-9316-DC587F55376B}.Debug|Win32.Build.0 = Debug|Win32
+		{D01249A7-329A-4BF7-9316-DC587F55376B}.Debug|x64.ActiveCfg = Debug|x64
+		{D01249A7-329A-4BF7-9316-DC587F55376B}.Debug|x64.Build.0 = Debug|x64
+		{D01249A7-329A-4BF7-9316-DC587F55376B}.Release|Win32.ActiveCfg = Release|Win32
+		{D01249A7-329A-4BF7-9316-DC587F55376B}.Release|Win32.Build.0 = Release|Win32
+		{D01249A7-329A-4BF7-9316-DC587F55376B}.Release|x64.ActiveCfg = Release|x64
+		{D01249A7-329A-4BF7-9316-DC587F55376B}.Release|x64.Build.0 = Release|x64
+		{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}.Debug|Win32.Build.0 = Debug|Win32
+		{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}.Debug|x64.ActiveCfg = Debug|x64
+		{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}.Debug|x64.Build.0 = Debug|x64
+		{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}.Release|Win32.ActiveCfg = Release|Win32
+		{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}.Release|Win32.Build.0 = Release|Win32
+		{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}.Release|x64.ActiveCfg = Release|x64
+		{6A2AC7E7-3D98-40A6-A10F-73E6454ED420}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
