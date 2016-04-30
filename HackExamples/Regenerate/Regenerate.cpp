@@ -48,7 +48,7 @@ extern "C" __declspec(dllexport) void __cdecl initialize(DWORD initLife)
 
   cout << "Initialize called.  Setting life to: " << dec << initLife << endl;
 
-  // Change the bullets.
+  // Change the life using the passed-in value.
   *life = initLife;
   
   // Start the regeneration thread.

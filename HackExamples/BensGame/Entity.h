@@ -13,14 +13,13 @@ class Entity
 {
   unsigned life;
 
-  friend class EntityList;
 public:
   /*
    * Construct the Entity.
   */ 
   Entity();
   virtual void takeHit(unsigned hit);
-  unsigned getLife() const;
+  virtual unsigned getLife() const;
   virtual string toString() const;
 };
 

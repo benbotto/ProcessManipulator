@@ -6,9 +6,9 @@ using std::string;
 
 class Player : public Entity
 {
-  unsigned int bullets;
-  string       name;
-  Entity*      target;
+  unsigned bullets;
+  string   name;
+  Entity*  target;
 
 public:
   Player(const string& name);
