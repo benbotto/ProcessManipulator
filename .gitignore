@@ -1,1 +1,12 @@
-**/*/Release
+# User-specific files
+*.suo
+*.user
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+
+# Visual C++ cache files
+*.opendb
+*.VC.db
+*.VC.VC.opendb
