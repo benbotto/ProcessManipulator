@@ -58,7 +58,7 @@ int main(int argc, char* argv)
 {
   typedef vector<unique_ptr<Entity> > entList_t;
 
-  Player              p1("Target_practice");
+  Player              p1("Target_Practice");
   entList_t           enemies;
   entList_t::iterator target;
   bool                quit = false;
