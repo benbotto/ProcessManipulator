@@ -23,7 +23,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD callReason, LPVOID reserved)
            << hex << hModule << "\nSetting bullets to 220" << endl;
 
       // Change the bullets.
-      bullets  = reinterpret_cast<unsigned int*>(0x0018FEF4);
+      bullets  = reinterpret_cast<unsigned int*>(0x0018FEEC);
       *bullets = 220;
       break;
     case DLL_THREAD_ATTACH:
