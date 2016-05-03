@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="19">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"p1 Bullets"</Description>
+      <LastState Value="16" RealAddress="0040A258"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>BensGame.exe+A258</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"p1 Life"</Description>
+      <LastState Value="100" RealAddress="0040A254"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>BensGame.exe+A254</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"pP2-&gt;life"</Description>
+      <LastState Value="40" RealAddress="001CE644"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>BensGame.exe+A274</Address>
+      <Offsets>
+        <Offset>4</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
