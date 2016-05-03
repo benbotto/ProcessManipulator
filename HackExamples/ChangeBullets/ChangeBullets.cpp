@@ -17,7 +17,7 @@ int main()
   HANDLE           hndToken;
   HANDLE           hndProc;
   LUID             luid;
-  DWORD*           bulletsAddr = reinterpret_cast<DWORD*>(0x0018FEEC);
+  DWORD*           bulletsAddr = reinterpret_cast<DWORD*>(0x40A258);
   uint             bullets;
   uint             newBullets = 100;
   TOKEN_PRIVILEGES tp;
