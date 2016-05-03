@@ -12,6 +12,12 @@ using std::string;
 using std::vector;
 using std::unique_ptr;
 
+typedef vector<unique_ptr<Entity> > entList_t;
+
+Player              p1("Target_Practice");
+entList_t           enemies;
+entList_t::iterator target;
+
 void help()
 {
   cout << '\n';
@@ -56,13 +62,8 @@ void changeTarget(Player& p1, Entity* ent)
 
 int main(int argc, char* argv)
 {
-  typedef vector<unique_ptr<Entity> > entList_t;
-
-  Player              p1("Target_Practice");
-  entList_t           enemies;
-  entList_t::iterator target;
-  bool                quit = false;
-  string              command;
+  bool   quit = false;
+  string command;
 
   // Change the window title.
   SetConsoleTitle("BensGame");
