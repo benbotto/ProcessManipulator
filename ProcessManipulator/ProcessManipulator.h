@@ -23,12 +23,12 @@ class ProcessManipulator
   // Calls an exported function in a dll, passing args.  Only for functions
   // that are in DLLs loaded by this process (i.e. kernel32.dll).
   DWORD CallFunction(const string& dllName, const string& functionName,
-    const DWORD* args, const DWORD& numArgs) const;
+    const DWORD* args, DWORD numArgs) const;
 
   // Same as above but without using GetProcAddress, and with a calling 
   // convention (__cdecl or __stdcall).
   DWORD CallFunction(const void* procAddr, const DWORD* args,
-    const DWORD& numArgs, const unsigned& convention) const;
+    DWORD numArgs, unsigned convention) const;
 public:
   ProcessManipulator(const string& windowName);
   
@@ -37,14 +37,13 @@ public:
   SIZE_T ReadMemory(void* address, void* data, size_t dataSize) const;
   
   // Allocate or free memory in the process.
-  void* Malloc(const unsigned& numBytes) const;
+  void* Malloc(unsigned numBytes) const;
   void Free(void* addr) const;
 
   // Calls an exported function in a dll, passing args.  The function must
   // have the following signature:
   // extern "C" __declspec(dllexport) void __cdecl initialize(DWORD arg1, DWORD argN)
-  DWORD CallFunction(const void* procAddr, const DWORD* args,
-    const DWORD& numArgs) const;
+  DWORD CallFunction(const void* procAddr, const DWORD* args, DWORD numArgs) const;
 
   // Returns the the handle to the module in the arbitrary process for
   // later freeing.  The module _should_ return TRUE from DllMain so that the
@@ -57,7 +56,7 @@ public:
   // Get a handle to a module in the arbitrary process.
   HMODULE GetModuleHandle(const string& dllName) const;
 
-  // Get the address of an exported function in a DLL that the process as loaded.
+  // Get the address of an exported function in a DLL that the process has loaded.
   void* GetProcAddress(const HMODULE& hmod, const string& functionName) const;
 
   ~ProcessManipulator();

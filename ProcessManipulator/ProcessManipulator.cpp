@@ -193,7 +193,7 @@ SIZE_T ProcessManipulator::ReadMemory(void* address, void* data, size_t dataSize
 /*****************************************************************************
  * Allocate numBytes of memory.
 *****************************************************************************/
-void* ProcessManipulator::Malloc(const unsigned& numBytes) const
+void* ProcessManipulator::Malloc(unsigned numBytes) const
 {
   void* addr;
   
@@ -218,7 +218,7 @@ void ProcessManipulator::Free(void* addr) const
  * Call an exported function in a DLL.
 *****************************************************************************/
 DWORD ProcessManipulator::CallFunction(const string& dllName,
-  const string& functionName, const DWORD* args, const DWORD& numArgs) const
+  const string& functionName, const DWORD* args, DWORD numArgs) const
 {
   // Get the address of the function that the thread will call.
   void* procAddr = ::GetProcAddress(::GetModuleHandle(dllName.c_str()), functionName.c_str());
@@ -230,7 +230,7 @@ DWORD ProcessManipulator::CallFunction(const string& dllName,
  * Call a __cdecl function in a DLL.
 *****************************************************************************/
 DWORD ProcessManipulator::CallFunction(const void* procAddr, const DWORD* args,
-  const DWORD& numArgs) const
+  DWORD numArgs) const
 {
   return CallFunction(procAddr, args, numArgs, C);
 }
@@ -239,7 +239,7 @@ DWORD ProcessManipulator::CallFunction(const void* procAddr, const DWORD* args,
  * Call an exported function in a DLL.
 *****************************************************************************/
 DWORD ProcessManipulator::CallFunction(const void* procAddr, const DWORD* args,
-    const DWORD& numArgs, const unsigned& convention) const
+    DWORD numArgs, unsigned convention) const
 {
   unsigned argSize = numArgs * sizeof(DWORD);
   unsigned asmLen;

@@ -98,7 +98,7 @@ teardown function before a DLL is unloaded.  Parameters are as follows:
   Use the [GetProcAddress](#getprocaddress) method to find the address of an exported function in the foreign process.
 - `const DWORD* args` A pointer to an array of DWORD arguments (the arguments can really be cast to any type).  This
   method will automatically write the arguments to the foreign process.
-- `const DWORD& numArgs` The number of arguments provided in `args`.
+- `DWORD numArgs` The number of arguments provided in `args`.
 
 The method returns a `DWORD` that is the return value of the called function in the arbitrary process.
 
@@ -109,7 +109,7 @@ with a single argument.  The example demonstrates how to safely create a thread 
 ##### Malloc
 Use this function to allocate memory in the arbitrary process.  It is the user's responsobility to clean the memory up using the `Free` method.  This method takes a single parameter:
 
-- `const unsigned& numBytes` The number of bytes to allocate in the foreign process.
+- `unsigned numBytes` The number of bytes to allocate in the foreign process.
 
 The method returns the address of the allocated memory in the foreign process's address space.  The memory is given read and write priveleges (`PAGE_READWRITE`).  If a failure occurs, a `ProcessManipulatorException`
 is raised with a description of the error.

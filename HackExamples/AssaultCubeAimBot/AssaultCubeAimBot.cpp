@@ -1,3 +1,10 @@
+/**
+ * Use assaultCubeInjector to inject this DLL.
+ * This example is intentionally kept trivial with no error checking and
+ * demonstrates a bare-minimum aimbot.  You must be in a multiplayer game with
+ * another player joined before running this code.
+ */
+
 #ifdef _MANAGED
 #pragma managed(push, off)
 #endif
