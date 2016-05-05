@@ -30,6 +30,7 @@ examples run against version 1.2.0.2.
 - [Malloc](#malloc)
 - [Free](#free)
 - [GetModuleHandle](#getmodulehandle)
+- [GetProcAddress](#getprocaddress)
 
 ##### Constructor
 The `ProcessManipulator` constructor takes a single argument, which is the title/name of a window.  For example:
@@ -125,4 +126,10 @@ This method gets the handle of a module (`HMODULE`) _in the foreign process's ad
 
 An `HMODULE` is returned.
 
+##### GetProcAddress
+Get the address of a function in the foreign process.  Parameters are as follows:
 
+- `const HMODULE& hmod` A handle to the module that exports the function.  This can be obtained from the [LoadLibrary](#loadlibrary) method in the case of an injected DLL, or by using the [GetModuleHandle](#getmodulehandle) method.
+- `const string& functionName` The name of the function.  Keep in mind that many WINAPI function have both a unicode and a multi-byte version (e.g. `MessageBoxW` and `MessageBoxA`).
+
+A pointer to the address in the foreign process's address space is returned.
