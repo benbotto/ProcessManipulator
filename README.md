@@ -11,10 +11,10 @@ available, most are deficient in my opinion.  There are very few operations that
 For example, threads should not be created in `DllMain`, nor should functions form `user32` be called. Yet, most
 DLL injectors provide examples that immediately spawn a thread or create a MessageBox.  This is unsafe, and can
 lead to difficult-to-diagnose errors.  `ProcessManipulator` handles this by allowing the user to export functions
-in their DLL, and then call those function after the DLL has been loaded.  This can be used for setup and teardown
+in their DLL, and then call those functions after the DLL has been loaded.  This can be used for setup and teardown
 operations, allowing the user to safely create threads, load additional libraries, and call managed functions.
 Likewise, most other DLL injectors ignore the return value of `LoadLibrary`, and this makes it hard to "uninject"
-DLLs because the `HANDLE` to the DLL module is needed.  `ProcessManipulator` makes freeing DLLs trivial.
+DLLs because the handle to the DLL module (`HMODULE`) is needed.  `ProcessManipulator` makes freeing DLLs trivial.
 
 Documentation is light, but the code is thoroughly commented and a series of examples are included to help
 developers get up and running quickly.  The examples should be compiled in Visual Studio 2015.  The AssaultCube
@@ -24,9 +24,9 @@ examples run against version 1.2.0.2.
 - [Constructor](#constructor)
 - [WriteMemory](#writememory)
 - [ReadMemory](#readmemory)
+- [CallFunction](#callfunction)
 - [Malloc](#malloc)
 - [Free](#free)
-- [CallFunction](#callfunction)
 
 ##### Constructor
 The `ProcessManipulator` constructor takes a single argument, which is the title/name of a window.  For example:
@@ -60,21 +60,6 @@ This function allows the user to read memory from an arbitrary process.  Paramet
 The function returns the number of bytes read from the foreign process.  If a failure occurs, a `ProcessManipulatorException`
 is raised with a description of the error.
 
-##### Malloc
-Use this function to allocate memory in the arbitrary process.  It is the user's responsobility to clean the memory up using the `Free` method.  This method takes a single parameter:
-
-- `const unsigned& numBytes` The number of bytes to allocate in the foreign process.
-
-The method returns the address of the allocated memory in the foreign process's address space.  The memory is given read and write priveleges (`PAGE_READWRITE`).  If a failure occurs, a `ProcessManipulatorException`
-is raised with a description of the error.
-
-##### Free
-This method deallocates memory in the foreign process, and takes a single parameter:
-
-- `void* addr` The address of the memory to free.
-
-No size argument is needed; the memory is freed using a `freeType` of `MEM_RELEASE`.  If a failure occurs, a `ProcessManipulatorException` is raised with a description of the error.
-
 ##### CallFunction
 Use this method to call an exported function in the foreign process.  The function must have the following signature:
 
@@ -95,3 +80,19 @@ The method returns a `DWORD` that is the return value of the called function in 
 
 For an example, refer to `Regenerate.cpp` which exports an `initialize` method.  `initialize` is in turn called by `injector.cpp`
 with a single argument.  The example demonstrates how to safely create a thread in an injected DLL, and then how to safely remove the DLL after calling a `cleanup` function.
+
+
+##### Malloc
+Use this function to allocate memory in the arbitrary process.  It is the user's responsobility to clean the memory up using the `Free` method.  This method takes a single parameter:
+
+- `const unsigned& numBytes` The number of bytes to allocate in the foreign process.
+
+The method returns the address of the allocated memory in the foreign process's address space.  The memory is given read and write priveleges (`PAGE_READWRITE`).  If a failure occurs, a `ProcessManipulatorException`
+is raised with a description of the error.
+
+##### Free
+This method deallocates memory in the foreign process, and takes a single parameter:
+
+- `void* addr` The address of the memory to free.
+
+No size argument is needed; the memory is freed using a `freeType` of `MEM_RELEASE`.  If a failure occurs, a `ProcessManipulatorException` is raised with a description of the error.
