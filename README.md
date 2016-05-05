@@ -2,7 +2,7 @@
 ProcessManipulator is a library that helps with manipulating arbitrary 32-bit processes in Windows, and it's
 particularly helpful for hacking video games. The library can be used to read and write memory from and to 
 an arbitrary process, load and unload libraries, get handles to modules (DLLs and executables) in an
-external process's address space, and call exported (extern) __stdcall and __cdecl functions.
+external process's address space, and call exported (extern) __cdecl functions.
 
 One of my driving reasons for writing this software is that, although there are many DLL injectors
 available, most are deficient in my opinion.  There are very few operations that can be performed safely in
@@ -26,6 +26,7 @@ examples run against version 1.2.0.2.
 - [ReadMemory](#readmemory)
 - [Malloc](#malloc)
 - [Free](#free)
+- [CallFunction](#callfunction)
 
 ##### Constructor
 The `ProcessManipulator` constructor takes a single argument, which is the title/name of a window.  For example:
@@ -73,3 +74,24 @@ This method deallocates memory in the foreign process, and takes a single parame
 - `void* addr` The address of the memory to free.
 
 No size argument is needed; the memory is freed using a `freeType` of `MEM_RELEASE`.  If a failure occurs, a `ProcessManipulatorException` is raised with a description of the error.
+
+##### CallFunction
+Use this method to call an exported function in the foreign process.  The function must have the following signature:
+
+```c++
+extern "C" __declspec(dllexport) void __cdecl initialize(DWORD arg1, DWORD argN)
+```
+
+This method is helpful for calling an initialization function after a DLL has been injected, or calling a
+teardown function before a DLL is unloaded.  Parameters are as follows:
+
+- `const void* procAddr` A pointer to the address of the function in the specified process from which to read.
+  Use the [GetProcAddress](#getprocaddress) method to find the address of an exported function in the foreign process.
+- `const DWORD* args` A pointer to an array of DWORD arguments (the arguments can really be cast to any type).  This
+  method will automatically write the arguments to the foreign process.
+- `const DWORD& numArgs` The number of arguments provided in `args`.
+
+The method returns a `DWORD` that is the return value of the called function in the arbitrary process.
+
+For an example, refer to `Regenerate.cpp` which exports an `initialize` method.  `initialize` is in turn called by `injector.cpp`
+with a single argument.  The example demonstrates how to safely create a thread in an injected DLL, and then how to safely remove the DLL after calling a `cleanup` function.
