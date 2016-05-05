@@ -24,6 +24,8 @@ examples run against version 1.2.0.2.
 - [Constructor](#constructor)
 - [WriteMemory](#writememory)
 - [ReadMemory](#readmemory)
+- [Malloc](#malloc)
+- [Free](#free)
 
 ##### Constructor
 The `ProcessManipulator` constructor takes a single argument, which is the title/name of a window.  For example:
@@ -56,3 +58,18 @@ This function allows the user to read memory from an arbitrary process.  Paramet
 
 The function returns the number of bytes read from the foreign process.  If a failure occurs, a `ProcessManipulatorException`
 is raised with a description of the error.
+
+##### Malloc
+Use this function to allocate memory in the arbitrary process.  It is the user's responsobility to clean the memory up using the `Free` method.  This method takes a single parameter:
+
+- `const unsigned& numBytes` The number of bytes to allocate in the foreign process.
+
+The method returns the address of the allocated memory in the foreign process's address space.  The memory is given read and write priveleges (`PAGE_READWRITE`).  If a failure occurs, a `ProcessManipulatorException`
+is raised with a description of the error.
+
+##### Free
+This method deallocates memory in the foreign process, and takes a single parameter:
+
+- `void* addr` The address of the memory to free.
+
+No size argument is needed; the memory is freed using a `freeType` of `MEM_RELEASE`.  If a failure occurs, a `ProcessManipulatorException` is raised with a description of the error.
