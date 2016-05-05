@@ -24,6 +24,7 @@ examples run against version 1.2.0.2.
 - [Constructor](#constructor)
 - [WriteMemory](#writememory)
 - [ReadMemory](#readmemory)
+- [LoadLibrary](#loadlibrary)
 - [CallFunction](#callfunction)
 - [Malloc](#malloc)
 - [Free](#free)
@@ -59,6 +60,15 @@ This function allows the user to read memory from an arbitrary process.  Paramet
 
 The function returns the number of bytes read from the foreign process.  If a failure occurs, a `ProcessManipulatorException`
 is raised with a description of the error.
+
+##### LoadLibrary
+This method is used to inject a DLL into the foreign process.  The method takes a single argument:
+
+- `const string& dllName` The name of the DLL to load.  It's best to use the absolute path to the DLL; otherwise, the DLL must be in the system %PATH%.  (The external process must be able to find the DLL in order to load it.)
+
+A handle to the loaded module (`HMODULE`) is returned.  This handle should be kept so that the module can be freed using the [FreeLibrary](#freelibrary) method.
+
+For a trivial example, see the `ChangeBullets2.cpp` file, which changes the players bullets in the `BensGame` process.  Often a setup function needs to be called after the DLL is loaded.  Refer to the [CallFunction](#callfunction) documentation below for an example of calling an initialization function.
 
 ##### CallFunction
 Use this method to call an exported function in the foreign process.  The function must have the following signature:
