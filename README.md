@@ -25,6 +25,7 @@ examples run against version 1.2.0.2.
 - [WriteMemory](#writememory)
 - [ReadMemory](#readmemory)
 - [LoadLibrary](#loadlibrary)
+- [FreeLibrary](#freelibrary)
 - [CallFunction](#callfunction)
 - [Malloc](#malloc)
 - [Free](#free)
@@ -68,7 +69,16 @@ This method is used to inject a DLL into the foreign process.  The method takes 
 
 A handle to the loaded module (`HMODULE`) is returned.  This handle should be kept so that the module can be freed using the [FreeLibrary](#freelibrary) method.
 
-For a trivial example, see the `ChangeBullets2.cpp` file, which changes the players bullets in the `BensGame` process.  Often a setup function needs to be called after the DLL is loaded.  Refer to the [CallFunction](#callfunction) documentation below for an example of calling an initialization function.
+For a trivial example, see `injector.cpp` which injects the DLL created by the `ChangeBullets2.cpp` file (the DLL changes the players bullets in the `BensGame` process).  Often a setup function needs to be called after the DLL is loaded.  Refer to the [CallFunction](#callfunction) documentation below for an example of calling an initialization function.
+
+##### FreeLibrary
+Use this method to remove a library from the foreign process.  A single parameter is needed:
+
+- `const HMODULE& hmod` The handle to the module.  This handle is returned from the [LoadLibrary](#loadlibrary) method, and can also be attained using the [GetModuleHandle](#getmodulehandle) method.
+
+A boolean is returned indicating whether or not the library was successfully unloaded.
+
+For a simple example, see `injector.cpp` and `ChangeBullets2.cpp`.
 
 ##### CallFunction
 Use this method to call an exported function in the foreign process.  The function must have the following signature:
