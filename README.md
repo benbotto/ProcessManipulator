@@ -4,6 +4,18 @@ particularly helpful for hacking video games. The library can be used to read an
 an arbitrary process, load and unload libraries, get handles to modules (DLLs and executables) in an
 external process's address space, and call exported (extern) __stdcall and __cdecl functions.
 
+One of my driving reasons for writing this software is that, although there are many DLL injectors
+available, most are deficient in my opinion.  There are very few operations that can be performed safely in
+`DllMain` (refer to
+[MSDN's DllMain documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/ms682583(v=vs.85).aspx)).
+For example, threads should not be created in `DllMain`, nor should functions form `user32` be called. Yet, most
+DLL injectors provide examples that immediately spawn a thread or create a MessageBox.  This is unsafe, and can
+lead to difficult-to-diagnose errors.  `ProcessManipulator` handles this by allowing the user to export functions
+in their DLL, and then call those function after the DLL has been loaded.  This can be used for setup and teardown
+operations, allowing the user to safely create threads, load additional libraries, and call managed functions.
+Likewise, most other DLL injectors ignore the return value of `LoadLibrary`, and this makes it hard to "uninject"
+DLLs because the `HANDLE` to the DLL module is needed.  `ProcessManipulator` makes freeing DLLs trivial.
+
 Documentation is light, but the code is thoroughly commented and a series of examples are included to help
 developers get up and running quickly.  The examples should be compiled in Visual Studio 2015.  The AssaultCube
 examples run against version 1.2.0.2.
