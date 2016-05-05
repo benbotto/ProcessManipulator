@@ -20,6 +20,8 @@ Documentation is light, but the code is thoroughly commented and a series of exa
 developers get up and running quickly.  The examples should be compiled in Visual Studio 2015.  The AssaultCube
 examples run against version 1.2.0.2.
 
+**This solution must be built in release mode**; it absolutely will not work in debug mode.
+
 ##### Table of Contents
 - [Constructor](#constructor)
 - [WriteMemory](#writememory)
