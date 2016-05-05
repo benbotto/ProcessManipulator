@@ -29,6 +29,7 @@ examples run against version 1.2.0.2.
 - [CallFunction](#callfunction)
 - [Malloc](#malloc)
 - [Free](#free)
+- [GetModuleHandle](#getmodulehandle)
 
 ##### Constructor
 The `ProcessManipulator` constructor takes a single argument, which is the title/name of a window.  For example:
@@ -116,3 +117,12 @@ This method deallocates memory in the foreign process, and takes a single parame
 - `void* addr` The address of the memory to free.
 
 No size argument is needed; the memory is freed using a `freeType` of `MEM_RELEASE`.  If a failure occurs, a `ProcessManipulatorException` is raised with a description of the error.
+
+##### GetModuleHandle
+This method gets the handle of a module (`HMODULE`) _in the foreign process's address space_.  A single parameter is required:
+
+-`const string& dllName` The name of the dll (or executable) for which the a handle shall be retrieved.
+
+An `HMODULE` is returned.
+
+
