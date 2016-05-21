@@ -22,6 +22,8 @@ examples run against version 1.2.0.2.
 
 **This solution must be built in release mode**; it absolutely will not work in debug mode.
 
+I presented on the basics of game hacking at the 2016 CryptoNight convention.  A recorded version of the presentation is available, [here: https://youtu.be/WMdGvJTzx4k](https://youtu.be/WMdGvJTzx4k).
+
 ##### Table of Contents
 - [Constructor](#constructor)
 - [WriteMemory](#writememory)
